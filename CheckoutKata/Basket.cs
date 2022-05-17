@@ -1,6 +1,6 @@
 ﻿namespace CheckoutKata
 {
-    public class Class1
+    public class Basket
     {
 
     }
