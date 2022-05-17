@@ -20,7 +20,8 @@ public class Promotion : IPromotion
                 case EPromotionType.ActualPrice:
                     return quantity / Threshold * ModifierValue;
                 case EPromotionType.Percentage:
-                    return quantity * unitPrice * ((decimal)ModifierValue / 100);
+                    var fullPrice = quantity * unitPrice;
+                    return fullPrice - fullPrice * ((decimal)ModifierValue / 100);
                 default : throw new ArgumentException("Incorrect promotion type");
             }
         }

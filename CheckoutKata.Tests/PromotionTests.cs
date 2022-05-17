@@ -32,7 +32,7 @@ namespace CheckoutKata.Unit.Tests
             var promotionCost = percentagePromotion.GetPromotionCost(quantity, unitPrice);
 
             //assert
-            Assert.AreEqual(3.5, promotionCost);
+            Assert.AreEqual(10.5, promotionCost);
         }
 
         [Test]
