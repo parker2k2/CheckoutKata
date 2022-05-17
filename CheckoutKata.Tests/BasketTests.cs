@@ -26,5 +26,27 @@ namespace CheckoutKata.Unit.Tests
             Assert.AreEqual(1, _basket.Items.Count);
             Assert.AreEqual(returnMockItemSku, _basket.Items[0].ItemSku);
         }
+
+        [Test]
+        public void Basket_GetTotalCost_TwoItems()
+        {
+            //arrange
+            var mockItem1 = new Mock<IItem>();
+            mockItem1.Setup(x => x.GetCost()).Returns(1.3m);
+
+            var mockItem2 = new Mock<IItem>();
+            mockItem2.Setup(x => x.GetCost()).Returns(2.5m);
+
+            _basket.Add(mockItem1.Object);
+            _basket.Add(mockItem2.Object);
+
+            //act
+            var totalCost = _basket.GetTotalCost();
+            
+            //assert
+            Assert.AreEqual(2, _basket.Items.Count);
+            Assert.AreEqual(totalCost, 3.8m);
+        }
+
     }
 }
