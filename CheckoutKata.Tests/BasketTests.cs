@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices.ComTypes;
 using CheckoutKata.Classes;
 using CheckoutKata.Interfaces;
@@ -46,6 +47,20 @@ namespace CheckoutKata.Unit.Tests
             //assert
             Assert.AreEqual(2, _basket.Items.Count);
             Assert.AreEqual(totalCost, 3.8m);
+        }
+
+        [Test]
+        public void Basket_GetTotalCost_InvalidCostItem()
+        {
+            //arrange
+            var mockItem1 = new Mock<IItem>();
+            mockItem1.Setup(x => x.GetCost()).Returns(-1);
+            
+            _basket.Add(mockItem1.Object);
+            
+            //assert / act
+            Assert.AreEqual(1, _basket.Items.Count);
+            Assert.Throws<Exception> (() => _basket.GetTotalCost());
         }
 
     }
