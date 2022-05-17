@@ -11,7 +11,7 @@ namespace CheckoutKata.Unit.Tests
         }
 
         [Test]
-        public void Test1()
+        public void Basket_AddItem_()
         {
             Assert.Pass();
         }
