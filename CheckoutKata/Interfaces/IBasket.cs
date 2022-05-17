@@ -1,6 +1,6 @@
 ﻿using CheckoutKata.Interfaces;
 
-internal interface IBasket
+public interface IBasket
 {
     List<IItem> Items { get;}
 

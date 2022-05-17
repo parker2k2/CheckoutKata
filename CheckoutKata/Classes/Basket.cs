@@ -2,7 +2,7 @@
 
 namespace CheckoutKata.Classes
 {
-    internal class Basket : IBasket
+    public class Basket : IBasket
     {
         public List<IItem> Items { get; }
 
