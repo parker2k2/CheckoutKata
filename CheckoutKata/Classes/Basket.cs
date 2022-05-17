@@ -6,11 +6,16 @@ namespace CheckoutKata.Classes
     {
         public List<IItem> Items { get; }
 
+        public Basket()
+        {
+            Items = new List<IItem>();
+        }
+        
         public void Add(IItem item)
         {
             try
             {
-
+                Items.Add(item);
             }
             catch (Exception e)
             {
